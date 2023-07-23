@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nu_test1/features/shorten_link/presentation/bloc/short_url_bloc.dart';
+import 'package:nu_test1/features/shorten_link/presentation/widgets/loading_widget.dart';
 import 'package:nu_test1/features/shorten_link/presentation/widgets/message_display.dart';
 import 'package:nu_test1/features/shorten_link/presentation/widgets/short_url_input.dart';
 import 'package:nu_test1/features/shorten_link/presentation/widgets/short_urls_widget.dart';
@@ -28,17 +29,19 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              const ShortUrlInput(),
+              const SizedBox(height: 70,),
+              const Text('URLs List', style: TextStyle(fontSize: 27),),
+              const SizedBox(height: 50,),
               BlocBuilder<ShortUrlBloc, ShortUrlState>(builder: (context, state) {
-                if(state is ShortUrlListed) {
-                  return Column(
-                    children: [
-                      const ShortUrlInput(),
-                      const SizedBox(height: 70,),
-                      const Text('URLs List', style: TextStyle(fontSize: 27),),
-                      const SizedBox(height: 50,),
-                      ShortUrlsWidget(shortUrls: state.shortUrls,)
-                    ],
-                  );
+                if(state is ShortUrlInit){
+                  return const MessageDisplay(message: 'Empty List');
+                }
+                else if(state is ShortUrlLoading) {
+                  return const LoadingWidget();
+                }
+                else if(state is ShortUrlListed) {
+                  return ShortUrlsWidget(shortUrls: state.shortUrls,);
                 } else if(state is ErrorState) {
                   return MessageDisplay(message: state.message);
                 }
