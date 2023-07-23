@@ -14,10 +14,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Material App',
+      title: 'NuBank App',
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Material App Bar'),
+          title: const Text('NuBank App'),
         ),
         body: const Center(
           child: HomeScreen(),
