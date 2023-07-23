@@ -11,7 +11,6 @@ part 'short_url_state.dart';
 class ShortUrlBloc extends Bloc<ShortUrlEvent, ShortUrlState> {
 
   final CreateShortUrl createShortUrl;
-  //TODO: pass it in params
   Set<ShortUrl> updatedShortUrls = {};
   ShortUrlBloc({
     required this.createShortUrl

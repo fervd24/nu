@@ -7,7 +7,6 @@ abstract class ShortUrlState extends Equatable {
   @override
   List<Object> get props => [];
 }
-//TODO: create initial and loading state and change it on the bloc
 
 class ShortUrlInit extends ShortUrlState {}
 
