@@ -15,10 +15,15 @@ import 'short_url_repository_impl_test.mocks.dart';
 
 @GenerateMocks([ShortedUrlRemoteDataSource])
 void main() {
-  MockShortedUrlRemoteDataSource mockDataSource = MockShortedUrlRemoteDataSource();
-  ShortUrlRepositoryImpl repository = ShortUrlRepositoryImpl(
-    remoteDataSource: mockDataSource
-  );
+  late ShortedUrlRemoteDataSource mockDataSource;
+  late ShortUrlRepositoryImpl repository;
+
+  setUp(() {
+    mockDataSource = MockShortedUrlRemoteDataSource();
+    repository = ShortUrlRepositoryImpl(
+      remoteDataSource: mockDataSource
+    );
+  });
 
   group('createShortUrl', () { 
 

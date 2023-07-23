@@ -12,12 +12,13 @@ import 'short_url_bloc_test.mocks.dart';
 
 @GenerateMocks([CreateShortUrl])
 void main() {
-  ShortUrlBloc bloc;
-  MockCreateShortUrl mockCreateShortUrl;
+  late ShortUrlBloc bloc;
+  late CreateShortUrl mockCreateShortUrl;
 
-  mockCreateShortUrl = MockCreateShortUrl();
-
-  bloc = ShortUrlBloc(createShortUrl: mockCreateShortUrl);
+  setUp(() {
+    mockCreateShortUrl = MockCreateShortUrl();
+    bloc = ShortUrlBloc(createShortUrl: mockCreateShortUrl);
+  });
 
   const Links tLinks = Links(self: 'www.test.com', short: "https://url-shortener-server.onrender.com/api/alias/1209625444");
   const ShortUrl shortUrl = ShortUrl(alias: '1209625444', links: tLinks);

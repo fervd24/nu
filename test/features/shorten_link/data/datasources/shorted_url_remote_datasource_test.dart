@@ -12,10 +12,15 @@ import 'shorted_url_remote_datasource_test.mocks.dart';
 
 @GenerateMocks([http.Client])
 void main() {
-  ShortedUrlRemoteDataSourceImpl dataSource;
+  
+  late ShortedUrlRemoteDataSourceImpl dataSource;
+  late MockClient client;
 
-  final client = MockClient();
-  dataSource = ShortedUrlRemoteDataSourceImpl(client: client);
+  setUp(() {
+    dataSource = ShortedUrlRemoteDataSourceImpl(client: client);
+    client = MockClient();
+    
+  });
 
   const url = 'www.test.com.mx';
 

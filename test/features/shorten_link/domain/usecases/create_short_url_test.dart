@@ -9,18 +9,19 @@ import 'package:nu_test1/features/shorten_link/domain/usecases/create_short_url.
 class MockShortUrlRepository extends Mock implements ShortUrlRepository{}
 
 void main() {
-  CreateShortUrl usecase;
-  MockShortUrlRepository mockShortUrlRepository;
+  late CreateShortUrl usecase;
+  late ShortUrlRepository mockShortUrlRepository;
 
-  setUp(() {});
+  setUp(() {
+    mockShortUrlRepository = MockShortUrlRepository();
+    usecase = CreateShortUrl(repository: mockShortUrlRepository);
 
-  mockShortUrlRepository = MockShortUrlRepository();
-  usecase = CreateShortUrl(repository: mockShortUrlRepository);
+  });
 
   const tUrl = 'www.test.com.mx';
   const Links tLinks = Links(self: 'www.test.com.mx', short: 'https://url-shortener-server.onrender.com/api/alias/1175941059');
   const tShortedUrl = ShortUrl(alias: '1175941059', links: tLinks);
-
+  
   test('should create and return new shorted link', () async {
     when(mockShortUrlRepository.createShortUrl(tUrl))
       .thenAnswer((_) async => const Right(tShortedUrl));
