@@ -42,7 +42,7 @@ There are 3 main modules to help separate the code. They are Data, Domain, and A
 
 # Folder structure
 - using modular architecture to architect the app per feature to be easier and more readable and isolate the feature from each other
-
+```
 ├── core                              # Files used along all features
     ├── error                         # Contains excpection and failure classes
     └── usecases                      # Contains interfaces for the usecases
@@ -56,6 +56,7 @@ There are 3 main modules to help separate the code. They are Data, Domain, and A
        └── main.dart                  # Main file of the app
 └── test                              # Unit tests
 
+```
 # lib
 
 * [core/](.\lib\core)
