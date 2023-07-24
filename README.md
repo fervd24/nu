@@ -47,13 +47,13 @@ There are 3 main modules to help separate the code. They are Data, Domain, and A
 │    ├── error                         # Contains excpection and failure classes
 │    └── usecases                      # Contains interfaces for the usecases
 ├── lib                                # Main fodler of the app
-│    └── features                      # Contains all features of the app
-│       ├── shorten_link               # shorten link feature folder
-│       │   ├── data                   # Data layer
-│       │   ├── domain                 # Domain layer
-│       │   └── presentation           # Presentation layer
-│       ├── injection_container.dart   # Dependency injection file
-│       └── main.dart                  # Main file of the app
+│    ├── features                      # Contains all features of the app
+│    │     └── shorten_link            # shorten link feature folder
+│    │          ├── data               # Data layer
+│    │          ├── domain             # Domain layer
+│    │          └── presentation       # Presentation layer
+│    ├── injection_container.dart      # Dependency injection file
+│    └── main.dart                     # Main file of the app
 └── test                               # Unit tests
 
 ```
