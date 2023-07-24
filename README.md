@@ -95,7 +95,7 @@ There are 3 main modules to help separate the code. They are Data, Domain, and A
         * [short_urls_widget.dart](.\lib\features\shorten_link\presentation\widgets\short_urls_widget.dart)
         * [short_url_input.dart](.\lib\features\shorten_link\presentation\widgets\short_url_input.dart)
 * [injection_container.dart](.\lib\injection_container.dart)
-* [main.dart](.\lib\main.dart
+* [main.dart](.\lib\main.dart)
 # Repository
 - Bridge between Data layer and Domain layer
 - Connects to data sources and returns mapped data
