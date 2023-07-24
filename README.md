@@ -1,9 +1,6 @@
-# Flutter app architecture
+# Flutter app clean architecture
 
 
-<p align="center">
-  <img src="https://i0.wp.com/resocoder.com/wp-content/uploads/2019/08/Clean-Architecture-Flutter-Diagram.png?resize=556%2C707&ssl=1" />
-</p>
 
 ## Introduction
 
@@ -11,8 +8,12 @@ This sample demonstrates how one can
 
 - Apply clean architecture on Flutter app 
 - Use dependency injection for layers separation
-- Employ unit testing.
+- Create unit testing.
 - Make api calls using http .
+
+<p align="center">
+  <img src="https://i0.wp.com/resocoder.com/wp-content/uploads/2019/08/Clean-Architecture-Flutter-Diagram.png?resize=556%2C707&ssl=1" />
+</p>
 
 #### dependencies
 
@@ -39,23 +40,37 @@ There are 3 main modules to help separate the code. They are Data, Domain, and A
 - **Application** contains UI, View Objects, Widgets, etc. Can be split into separate modules itself if needed. For example, we could have a module called Device handling things like camera, location, etc.
 
 
-# Package structure
+# Folder structure
 - using modular architecture to architect the app per feature to be easier and more readable and isolate the feature from each other
 
-.
-├── core                                # Files used along all features
-│    ├── error                          # Contains excpection and failure classes
-│    └── usecases                       # Contains interfaces for the usecases
-├── lib                                 # Main fodler of the app
-│    ├── features                       # Contains all features of the app
-│    │   ├── shorten_link               # shorten link feature folder
-│    │   │   ├── data                   # Data layer
-│    │   │   ├── domain                 # Domain layer
-│    │   │   └── presentation           # Presentation layer
-│    │   ├── injection_container.dart   # Dependency injection file
-│    │   └── main.dart                  # Main file of the app
-└── test                                # Unit tests
+├── core                              # Files used along all features
+    ├── error                         # Contains excpection and failure classes
+    └── usecases                      # Contains interfaces for the usecases
+├── lib                               # Main fodler of the app
+    └── features                      # Contains all features of the app
+       ├── shorten_link               # shorten link feature folder
+          ├── data                   # Data layer
+          ├── domain                 # Domain layer
+          └── presentation           # Presentation layer
+       ├── injection_container.dart   # Dependency injection file
+       └── main.dart                  # Main file of the app
+└── test                              # Unit tests
 
+$ ./tree-md .
+# Project tree
+
+.
+  [tree-md](./tree-md)
+ ├── [core](./dir2)
+    ├── [file21.ext](./dir2/file21.ext)
+   * [file22.ext](./dir2/file22.ext)
+   * [file23.ext](./dir2/file23.ext)
+ * [dir1](./dir1)
+   * [file11.ext](./dir1/file11.ext)
+   * [file12.ext](./dir1/file12.ext)
+ * [file_in_root.ext](./file_in_root.ext)
+ * [README.md](./README.md)
+ * [dir3](./dir3)
 # Repository
 - Bridge between Data layer and Domain layer
 - Connects to data sources and returns mapped data
