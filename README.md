@@ -43,60 +43,21 @@ There are 3 main modules to help separate the code. They are Data, Domain, and A
 # Folder structure
 - using modular architecture to architect the app per feature to be easier and more readable and isolate the feature from each other
 ```
-├── core                              # Files used along all features
-    ├── error                         # Contains excpection and failure classes
-    └── usecases                      # Contains interfaces for the usecases
-├── lib                               # Main fodler of the app
-    └── features                      # Contains all features of the app
-       ├── shorten_link               # shorten link feature folder
-          ├── data                   # Data layer
-          ├── domain                 # Domain layer
-          └── presentation           # Presentation layer
-       ├── injection_container.dart   # Dependency injection file
-       └── main.dart                  # Main file of the app
-└── test                              # Unit tests
+├── core                               # Files used along all features
+│    ├── error                         # Contains excpection and failure classes
+│    └── usecases                      # Contains interfaces for the usecases
+├── lib                                # Main fodler of the app
+│    └── features                      # Contains all features of the app
+│       ├── shorten_link               # shorten link feature folder
+│       │   ├── data                   # Data layer
+│       │   ├── domain                 # Domain layer
+│       │   └── presentation           # Presentation layer
+│       ├── injection_container.dart   # Dependency injection file
+│       └── main.dart                  # Main file of the app
+└── test                               # Unit tests
 
 ```
-# lib
 
-* [core/](.\lib\core)
-  * [error/](.\lib\core\error)
-    * [exceptions.dart](.\lib\core\error\exceptions.dart)
-    * [failures.dart](.\lib\core\error\failures.dart)
-  * [usecases/](.\lib\core\usecases)
-    * [usecase.dart](.\lib\core\usecases\usecase.dart)
-* [features/](.\lib\features)
-  * [shorten_link/](.\lib\features\shorten_link)
-    * [data/](.\lib\features\shorten_link\data)
-      * [datasources/](.\lib\features\shorten_link\data\datasources)
-        * [shorted_url_remote_datasource.dart](.\lib\features\shorten_link\data\datasources\shorted_url_remote_datasource.dart)
-      * [models/](.\lib\features\shorten_link\data\models)
-        * [links_model.dart](.\lib\features\shorten_link\data\models\links_model.dart)
-        * [short_url_model.dart](.\lib\features\shorten_link\data\models\short_url_model.dart)
-      * [repositories/](.\lib\features\shorten_link\data\repositories)
-        * [short_url_repository_impl.dart](.\lib\features\shorten_link\data\repositories\short_url_repository_impl.dart)
-    * [domain/](.\lib\features\shorten_link\domain)
-      * [entities/](.\lib\features\shorten_link\domain\entities)
-        * [links.dart](.\lib\features\shorten_link\domain\entities\links.dart)
-        * [short_url.dart](.\lib\features\shorten_link\domain\entities\short_url.dart)
-      * [repositories/](.\lib\features\shorten_link\domain\repositories)
-        * [short_url_repository.dart](.\lib\features\shorten_link\domain\repositories\short_url_repository.dart)
-      * [usecases/](.\lib\features\shorten_link\domain\usecases)
-        * [create_short_url.dart](.\lib\features\shorten_link\domain\usecases\create_short_url.dart)
-    * [presentation/](.\lib\features\shorten_link\presentation)
-      * [bloc/](.\lib\features\shorten_link\presentation\bloc)
-        * [short_url_bloc.dart](.\lib\features\shorten_link\presentation\bloc\short_url_bloc.dart)
-        * [short_url_event.dart](.\lib\features\shorten_link\presentation\bloc\short_url_event.dart)
-        * [short_url_state.dart](.\lib\features\shorten_link\presentation\bloc\short_url_state.dart)
-      * [view/](.\lib\features\shorten_link\presentation\view)
-        * [home.dart](.\lib\features\shorten_link\presentation\view\home.dart)
-      * [widgets/](.\lib\features\shorten_link\presentation\widgets)
-        * [loading_widget.dart](.\lib\features\shorten_link\presentation\widgets\loading_widget.dart)
-        * [message_display.dart](.\lib\features\shorten_link\presentation\widgets\message_display.dart)
-        * [short_urls_widget.dart](.\lib\features\shorten_link\presentation\widgets\short_urls_widget.dart)
-        * [short_url_input.dart](.\lib\features\shorten_link\presentation\widgets\short_url_input.dart)
-* [injection_container.dart](.\lib\injection_container.dart)
-* [main.dart](.\lib\main.dart)
 # Repository
 - Bridge between Data layer and Domain layer
 - Connects to data sources and returns mapped data
